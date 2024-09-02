@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title>Simple Calculator</title>
+    </head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border: 2px solid black;
+            height: 50vh;
+            width: 30%;
+            margin: 40px;
+            padding: 20px;
+        }
+        td{
+            border: 1px solid black;
+        }
+        button{
+            padding: 10px;
+            margin: 10px;
+            font-size: 30px;
+        }
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            height: 70vh;
+            width: 30%;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 20%;
+            left: 30%;
+            font-size: 25px;
+        }
+        .new{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 40vh;
+            border: 1px solid black;
+            padding: 50px;
+            top: 20%;
+            left: 30%;
+            position: relative;
+            background-color: aqua;
+        }
+        .one{
+            display: flex;
+        }
+        .last input{
+            width: 40%;
+            height: 40px;
+            margin-left: 30%;
+            margin-bottom: 20px;
+        }
+        .sec{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .third{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sec button{
+            font-size: 20px;
+            background-color: brown;
+        }
+        .third button{
+            font-size: 20px;
+            background-color: brown;
+        }
+        .first{
+            display: flex;
+            flex-direction: column;
+        }
+        .third{
+            width: 40%;
+            margin-left: 30%;
+        }
+        .third input{
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <body>
+        <div class="new">
+            <div class="last">
+                <input type="text" id="num1" placeholder="Enter a Number to Calculate">
+            </div>
+            <div class="sec">
+                <div class="first">
+                    <button id="one" onclick="displayText(1)">1</button>
+                    <button id="two" onclick="displayText(2)">2</button>
+                    <button id="three" onclick="displayText(3)">3</button>
+                    <button id="four" onclick="displayText(4)">4</button>
+                </div>
+                <div class="first">
+                    <button id="five" onclick="displayText(5)">5</button>
+                    <button id="six" onclick="displayText(6)">6</button>
+                    <button id="seven" onclick="displayText(7)">7</button>
+                    <button id="eight" onclick="displayText(8)">8</button>
+                </div>
+                <div class="first">
+                    <button id="nine" onclick="displayText(9)">9</button>
+                    <button id="zero" onclick="displayText(0)">0</button>
+                    <button id="plus" onclick="displayText('+')">+</button>
+                    <button id="minus" onclick="displayText('-')">-</button>
+                </div>
+                <div class="first">
+                    <button id="mul" onclick="displayText('*')">*</button>
+                    <button id="div" onclick="displayText('/')">/</button>
+                    <button id="equal" onclick="calculate()">=</button>
+                    <button id="equal" onclick="clearFields()">C</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function displayText(value){
+
+                const display = document.getElementById('num1');
+                display.value += value;
+            }
+
+            function calculate(){
+                const display = document.getElementById('num1');
+                try{
+                    const result = eval(display.value);
+                    document.getElementById('num1').value = result;
+                }catch(e){
+                    document.getElementById('num1').value = 'error';
+                }
+            }
+            function clearFields(){
+                document.getElementById('num1').value = "";
+            }
+        </script>
+        
+    </body>
+</html>
